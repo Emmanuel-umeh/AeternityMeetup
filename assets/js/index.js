@@ -1,38 +1,41 @@
 const contractSource = `
 contract LifeHack = 
-record lifeHack = 
-    {name : string,
-    creatorsAddress : address,
-    tutorial : string,
-    time : int }
+    record lifeHack = 
+        {name : string,
+        creatorsAddress : address,
+        tutorial : string,
+        time : int }
 
-record state =
-    {lifeHacks : map(int,lifeHack),
-     length : int }
+    record state =
+        {lifeHacks : map(int,lifeHack),
+         length : int }
 
-entrypoint init() = { lifeHacks = {}, length  = 0}
+    entrypoint init() = { lifeHacks = {}, length  = 0}
 
-entrypoint getLength () =
-    state.length
+    entrypoint getLength () =
+        state.length
 
-stateful entrypoint addHack(name' : string, tutorial' : string ) = 
-    let newHack = {
-        name = name',
-        creatorsAddress = Call.caller,
-        tutorial = tutorial',
-        time = Chain.timestamp }
-    let index = getLength() + 1
+    stateful entrypoint addHack(name' : string, tutorial' : string ) = 
+        let newHack = {
+            name = name',
+            creatorsAddress = Call.caller,
+            tutorial = tutorial',
+            time = Chain.timestamp }
+        let index = getLength() + 1
 
-    put(state{lifeHacks[index] = newHack, length = index })
+        put(state{lifeHacks[index] = newHack, length = index })
 
-entrypoint getHack(index : int) =
-    state.lifeHacks[index]
+    entrypoint getHack(index : int) =
+        state.lifeHacks[index]
 
-payable stateful entrypoint tipUser(index : int, price : int) =  
-    let user = getHack(index)
+    payable stateful entrypoint tipUser(index : int, price : int) =  
+        let user = getHack(index)
 
-    Chain.spend(user.creatorsAddress, price)
-    "Tipped Successfully "
+        Chain.spend(user.creatorsAddress, price)
+        "Tipped Successfully "
+        
+
+
     
 `
 

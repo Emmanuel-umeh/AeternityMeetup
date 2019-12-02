@@ -128,7 +128,7 @@ $('#regButton').click(async () =>{
   images = $('#imageUrl').val();
   tutorials= $('lifeHack').val();
 
-  console.log(tutorial)
+  console.log(tutorials)
 
   id  =  HackArray.length + 1
   await contractCall('addHack', [name,tutorial,image], 0)

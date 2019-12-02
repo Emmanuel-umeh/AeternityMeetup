@@ -40,7 +40,7 @@ const contractAddress = 'ct_25wvCKtZK6xGv6dH5tAB5z8YXAVwccmcKSkL7Na9LpjbvoA9Ap'
 
 var client = null
 
-HackArray = []
+var HackArray = []
 
 function renderHack() {
 

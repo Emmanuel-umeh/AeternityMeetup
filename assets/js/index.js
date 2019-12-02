@@ -131,7 +131,7 @@ $('#regButton').click(async () =>{
   console.log(tutorials)
 
   id  =  HackArray.length + 1
-  await contractCall('addHack', [name,tutorial,image], 0)
+  await contractCall('addHack', [names,tutorials,images], 0)
   newHack = await callStatic('getHack', [id])
 
   HackArray.push({

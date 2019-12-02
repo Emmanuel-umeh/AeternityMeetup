@@ -124,6 +124,7 @@ window.addEventListener('load', async()=> {
 
 
 $('#regButton').click(async () =>{
+  $('#loadings').show()
   names = $('#title').val();
   images = $('#imageUrl').val();
   tutorials= $('#lifeHack').val();
@@ -143,7 +144,9 @@ $('#regButton').click(async () =>{
   })
 
 
+  renderHack();
 
+  $('#loadings').hide()
 } )
   
   

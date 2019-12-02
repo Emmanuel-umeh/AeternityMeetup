@@ -86,7 +86,7 @@ function renderHack() {
   }
 
 
-document.addEventListener('load', async()=> {
+window.addEventListener('load', async()=> {
     $('#loadings').show()
     console.log("Rendering")
     client = await Ae.Aepp() 

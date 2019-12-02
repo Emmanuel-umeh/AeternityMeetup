@@ -42,7 +42,7 @@ contract LifeHack =
     
 `
 
-const contractAddress = 'ct_25wvCKtZK6xGv6dH5tAB5z8YXAVwccmcKSkL7Na9LpjbvoA9Ap'
+const contractAddress = 'ct_2GxQskSkkr7exbKu4uTaDyzvTLXze3cd7pntk43uXEqTdU5zFb'
 
 var client = null
 

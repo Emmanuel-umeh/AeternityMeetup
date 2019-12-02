@@ -126,9 +126,10 @@ window.addEventListener('load', async()=> {
 $('#regButton').click(async () =>{
   names = $('#title').val();
   images = $('#imageUrl').val();
-  tutorials= $('lifeHack').val();
+  tutorials= $('#lifeHack').val();
 
   console.log(tutorials)
+  console.log(names)
 
   id  =  HackArray.length + 1
   await contractCall('addHack', [names,tutorials,images], 0)

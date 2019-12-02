@@ -88,6 +88,7 @@ function renderHack() {
 
 document.addEventListener('load', async()=> {
     $('#loadings').show()
+    console.log("Rendering")
     client = await Ae.Aepp() 
 
     hacklength = await callStatic('getLength' , [])

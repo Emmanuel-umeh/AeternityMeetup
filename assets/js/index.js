@@ -39,8 +39,6 @@ contract LifeHack =
 
 
         
-
-
     
 `
 

@@ -4,6 +4,7 @@ contract LifeHack =
         {name : string,
         creatorsAddress : address,
         tutorial : string,
+        image : string,
         time : int }
 
     record state =
@@ -15,11 +16,12 @@ contract LifeHack =
     entrypoint getLength () =
         state.length
 
-    stateful entrypoint addHack(name' : string, tutorial' : string ) = 
+    stateful entrypoint addHack(name' : string, tutorial' : string, image':string ) = 
         let newHack = {
             name = name',
             creatorsAddress = Call.caller,
             tutorial = tutorial',
+            image = image',
             time = Chain.timestamp }
         let index = getLength() + 1
 
@@ -33,6 +35,9 @@ contract LifeHack =
 
         Chain.spend(user.creatorsAddress, price)
         "Tipped Successfully "
+        
+
+
         
 
 
@@ -102,6 +107,7 @@ window.addEventListener('load', async()=> {
 
         HackArray.push({
             name : getHack.name,
+            image : getHack.image,
             tutorial : getHack.tutorial,
             time : getHack.time
         })
@@ -116,6 +122,29 @@ window.addEventListener('load', async()=> {
 
 
     }
+} )
+
+
+$('#regButton').click(async () =>{
+  names = $('#title').val();
+  images = $('#imageUrl').val();
+  tutorials= $('lifeHack').val();
+
+  console.log(tutorial)
+
+  id  =  HackArray.length + 1
+  await contractCall('addHack', [name,tutorial,image], 0)
+  newHack = await callStatic('getHack', [id])
+
+  HackArray.push({
+    name : newHack.name,
+    image : newHack.image,
+    tutorial : newHack.tutorial,
+    time : newHack.time
+  })
+
+
+
 } )
   
   

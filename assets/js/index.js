@@ -93,7 +93,7 @@ document.addEventListener('load', async()=> {
 
     hacklength = await callStatic('getLength' , [])
 
-    for(var i; i<= hacklength; i++){
+    for(let i=1 ; i<= hacklength; i++){
 
         getHack = await callStatic('getHack', [i])
 
